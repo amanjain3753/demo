@@ -1,0 +1,40 @@
+# This is a Databricks asset bundle definition for dabdemo.
+bundle:
+  name: dabdemo
+  uuid: 99552034-7086-4929-9ef3-d1bd9d88b4d8
+
+include:
+  - resources*/**/.yml
+
+artifacts:
+  python_artifact:
+    type: whl
+    build: uv build --wheel
+
+variables:
+  catalog:
+    description: The catalog to use
+  schema:
+    description: The schema to use
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-7405613745039759.19.azuredatabricks.net
+    variables:
+      catalog: test_cata
+      schema: ${workspace.current_user.short_name}
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-7405613745039759.19.azuredatabricks.net
+      root_path: /Workspace/Users/amanjain@aaysinsight.com/.bundle/${bundle.name}/${bundle.target}
+    variables:
+      catalog: test_cata
+      schema: prod
+    permissions:
+      - user_name: amanjain@aaysinsight.com
+        level: CAN_MANAGE
