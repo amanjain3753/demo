@@ -2,6 +2,8 @@ resources:
   jobs:
     medallion_pipeline:
       name: medallion_pipeline
+      run_as:
+        user_name: amanmaikhuri.24031100@gehu.ac.in
 
       tasks:
         - task_key: bronze_task

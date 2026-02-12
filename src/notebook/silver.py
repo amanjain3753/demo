@@ -11,7 +11,10 @@ df_clean = (
       .withColumn("SALES", col("SALES").cast("double"))
       .withColumn("QUANTITYORDERED", col("QUANTITYORDERED").cast("int"))
       .withColumn("PRICEEACH", col("PRICEEACH").cast("double"))
-      .withColumn("ORDERDATE", to_date("ORDERDATE"))
+      .withColumn(
+          "ORDERDATE",
+          to_date(col("ORDERDATE"), "M/d/yyyy H:mm")
+      )
 )
 
 df_clean.write.format("delta") \
