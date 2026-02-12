@@ -11,7 +11,7 @@ df_clean = (
       .withColumn("SALES", col("SALES").cast("double"))
       .withColumn("QUANTITYORDERED", col("QUANTITYORDERED").cast("int"))
       .withColumn("PRICEEACH", col("PRICEEACH").cast("double"))
-      .withColumn("ORDERDATE", to_timestamp("dob", "M/d/yyyy H:mm")
+      .withColumn("ORDERDATE", to_timestamp(col("ORDERDATE"), "M/d/yyyy H:mm")
 )
 
 )
