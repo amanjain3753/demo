@@ -28,7 +28,7 @@ steps:
     DATABRICKS_TOKEN: $(DATABRICKS_TOKEN)
 
 - script: |
-    C:\azagent\databricks.exe bundle run medallion_job -t dev
+    C:\azagent\databricks.exe bundle run medallion_pipeline -t dev
   displayName: 'Run Databricks Workflow'
   env:
     DATABRICKS_HOST: $(DATABRICKS_HOST)
