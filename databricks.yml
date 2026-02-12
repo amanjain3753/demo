@@ -4,7 +4,9 @@ bundle:
   uuid: 99552034-7086-4929-9ef3-d1bd9d88b4d8
 
 include:
-  - resources*/**/.yml
+  - resources/*.yml
+  - resources/*/*.yml
+
 
 artifacts:
   python_artifact:
