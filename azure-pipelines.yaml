@@ -4,6 +4,14 @@ trigger:
 pool:
   name: Default
 
+schedules:
+- cron: "0 6 * * *"
+  displayName: Daily 6AM Run
+  branches:
+    include:
+    - main
+  always: true
+
 variables:
 - group: databricks-variables
 
