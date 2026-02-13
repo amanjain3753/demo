@@ -5,7 +5,7 @@ pool:
   name: Default
 
 schedules:
-- cron: "0 6 * * *"
+- cron: "30 9 * * *"
   displayName: Daily 6AM Run
   branches:
     include:
