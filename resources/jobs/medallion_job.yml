@@ -4,6 +4,11 @@ resources:
       name: medallion_pipeline
 
       tasks:
+        - task_key: Parser_task
+          spark_python_task :
+            python_file: ${workspace.file_path}/src/notebook/parser.py
+          environment_key: serverless_env
+          
         - task_key: bronze_task
           spark_python_task:
             python_file: ${workspace.file_path}/src/notebook/bronze.py
