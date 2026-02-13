@@ -1,5 +1,4 @@
 from pyspark.sql import SparkSession
-from parser import file_parser
 spark = SparkSession.builder.getOrCreate()
 
 def csv_reader(file_path):
